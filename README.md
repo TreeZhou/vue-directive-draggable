@@ -3,7 +3,7 @@
 通过 vue 指令的方式实现元素 drag 的功能，支持**移动端**和 PC 端。
 
 - 安卓和桌面版使用 drag 和 drop 接口，ios 使用 touch 事件实现
-  ![](./preview.gif)
+  ![](https://github.com/TreeZhou/vue-directive-draggable/blob/master/preview.gif)
 
 ## Install
 
@@ -124,7 +124,7 @@ from
 
 to
 
-- Type:dragEventData
+- Type:dragEventData  
   目标对象数据
 
 ### dragend 事件

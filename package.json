@@ -1,6 +1,6 @@
 {
   "name": "vue-directive-draggable",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "makes your elements draggable in Vue",
   "main": "./dist/vue-directive-draggable.min.js",
   "scripts": {
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "git@github.com:TreeZhou/vue-directive-draggable.git"
   },
   "author": "527533739@qq.com",
   "keywords": [
