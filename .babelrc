@@ -1,0 +1,18 @@
+{
+  "presets": [
+    ["env", {
+      "debug": true
+    }]
+  ],
+  "plugins": [
+    [
+      "transform-runtime",
+      {
+        "helpers": false,
+        "polyfill": false,
+        "regenerator": false
+      }
+    ]
+  ],
+  "comments": true
+}

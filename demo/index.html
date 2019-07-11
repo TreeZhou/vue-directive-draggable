@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>vue-dragging</title>
+  </head>
+  <script src="./vue.js"></script>
+  <script src="../dist/vue-directive-draggable.js"></script>
+  <script src="./vconsole.min.js"></script>
+  <script>
+    new VConsole();
+    Vue.use(window['vue-directive-draggable']);
+  </script>
+
+  <style>
+    * {
+      -webkit-tap-highlight-color: transparent;
+    }
+   
+    .item {
+      width: 100px;
+      height: 100px;
+      transition: transform 1s;
+      border: 1px black solid;
+      box-sizing: border-box;
+      margin: 0 auto;
+    }
+    .drag-enter {
+      transform: scale(1.2);
+    }
+    .placeholder {
+      background-color: transparent;
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+  <body>
+    <div id="app">
+      <div class="list">
+        <div
+          class="item"
+          v-for="item in list"
+          v-dragging="{ item: item, list: list, name: 'listName' }"
+          :key="item.key"
+          :class="{'drag-enter': item['drag-enter']}"
+          :style="{'background-color':item.backgroundColor}"
+        >
+          <div v-show="item['drag-enter']" class="placeholder">
+            拖拽目标对象添加`drag-enter`属性
+          </div>
+          <div v-show="item.dragging" class="placeholder">
+            拖拽源对象添加`dragging`属性
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        list: [
+          {
+            key: '1',
+            backgroundColor: 'red'
+          },
+          {
+            key: '2',
+            backgroundColor: 'yellow'
+          }
+        ]
+      },
+      mounted() {
+        this.$dragging.$on('dragStart', originDada => {
+          console.log(originDada);
+        });
+        this.$dragging.$on('dragged', draggedDate => {
+          console.log(draggedDate);
+        });
+        this.$dragging.$on('dragend', dragendData => {
+          console.log(dragendData);
+
+          //交换源对象与目标对象的背景颜色
+          let toColor = dragendData.to.item.backgroundColor;
+          let fromColor = dragendData.from.item.backgroundColor;
+          dragendData.to.item.backgroundColor = fromColor;
+          dragendData.from.item.backgroundColor = toColor;
+        });
+      }
+    });
+  </script>
+</html>

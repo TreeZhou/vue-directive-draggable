@@ -1,0 +1,49 @@
+{
+  "name": "vue-directive-draggable",
+  "version": "1.0.0",
+  "description": "makes your elements draggable in Vue",
+  "main": "./dist/vue-directive-draggable.min.js",
+  "scripts": {
+    "build": "rimraf dist && npm run build-no-uglify && npm run build-uglify",
+    "build-uglify": "cross-env NODE_ENV=uglify webpack --config webpack.config.js",
+    "build-no-uglify": "webpack --config webpack.config.js",
+    "start": "browser-sync start --server --startPath 'demo'"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "527533739@qq.com",
+  "keywords": [
+    "vue-dragging",
+    "vue-drag",
+    "vue-dnd",
+    "vue",
+    "draggable",
+    "drag",
+    "drop",
+    "html5",
+    "draggable",
+    "droppable",
+    "drag-and-drop",
+    "dnd"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "user": "0.0.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^6.4.1",
+    "babel-plugin-transform-runtime": "^6.15.0",
+    "babel-preset-env": "^1.7.0",
+    "browser-sync": "^2.26.7",
+    "cross-env": "^5.2.0",
+    "path": "^0.12.7",
+    "uglify-js": "^3.4.9",
+    "uglifyjs-webpack-plugin": "^1.1.1",
+    "webpack": "^3.6.0",
+    "webpack-cli": "^3.1.2"
+  }
+}
