@@ -1,6 +1,6 @@
 {
   "name": "vue-directive-draggable",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "makes your elements draggable in Vue",
   "main": "./dist/vue-directive-draggable.min.js",
   "scripts": {
