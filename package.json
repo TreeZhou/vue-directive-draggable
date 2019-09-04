@@ -1,12 +1,12 @@
 {
   "name": "vue-directive-draggable",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "makes your elements draggable in Vue",
   "main": "./dist/vue-directive-draggable.min.js",
   "scripts": {
-    "build": "rimraf dist && npm run build-no-uglify && npm run build-uglify",
-    "build-uglify": "cross-env NODE_ENV=uglify webpack --config webpack.config.js",
-    "build-no-uglify": "webpack --config webpack.config.js",
+    "build": "rimraf dist && npm run build-no-min && npm run build-min",
+    "build-min": "cross-env NODE_ENV=uglify webpack --config webpack.config.js",
+    "build-no-min": "webpack --config webpack.config.js",
     "start": "browser-sync start --server --startPath 'demo'"
   },
   "repository": {

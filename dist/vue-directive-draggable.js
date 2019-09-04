@@ -4,9 +4,9 @@
 	else if(typeof define === 'function' && define.amd)
 		define([], factory);
 	else if(typeof exports === 'object')
-		exports["vue-dragging"] = factory();
+		exports["vue-directive-draggable"] = factory();
 	else
-		root["vue-dragging"] = factory();
+		root["vue-directive-draggable"] = factory();
 })(typeof self !== 'undefined' ? self : this, function() {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
@@ -80,8 +80,7 @@ return /******/ (function(modules) { // webpackBootstrap
 "use strict";
 
 
-var vueDragging = __webpack_require__(1);
-module.exports = vueDragging;
+module.exports = __webpack_require__(1);
 
 /***/ }),
 /* 1 */
