@@ -35,11 +35,11 @@ if (process.env.NODE_ENV === 'uglify') {
         compress: false,
         mangle: true,
         output: {
-          comments: true,
+          comments: false,
           beautify: false
         }
       },
-      sourceMap: true
+      sourceMap: false
     })
   ]);
 }
