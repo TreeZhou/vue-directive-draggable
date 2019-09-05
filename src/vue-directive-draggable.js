@@ -1,9 +1,3 @@
-/*!
- * vue-dragging v1.0.0
- * (c) 2019 527533739@qq.com
- * Released under the MIT License.
- */
-
 class DragData {
   constructor() {
     this.data = {};

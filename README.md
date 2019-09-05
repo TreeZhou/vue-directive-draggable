@@ -8,7 +8,7 @@
 ## Install
 
 ```sh
-$ npm run install vue-directive-draggable
+$ npm install vue-directive-draggable
 ```
 
 ## Features
@@ -16,63 +16,40 @@ $ npm run install vue-directive-draggable
 - 拖拽源对象添加`dragging`属性
 - 拖拽目标对象添加`drag-enter`属性
 
-## Directive’s value.
+## Directive’s options.
 
-`v-dragging = "value"`
+`v-dragging = "options"`
 
-### value 　
-
-- Type: object
-- Require: true
-
-### value.list 　
-
-- Type: array
-- Require: true
-
-### value.item
+### Options
 
 - Type: object
-- Require: true
 
-### value.item.key
+| 参数 | 类型   | 必填 | 说明             |
+| ---- | ------ | ---- | ---------------- |
+| list | array  | true | 所有 item 的集合 |
+| name | string | true | 节点名           |
+| item | object | true | 节点数据         |
 
-- Type: string
-- Require: true
+### Item
 
-### value.item.name
+| 参数          | 类型   | 必填  | 说明                   |
+| ------------- | ------ | ----- | ---------------------- |
+| key           | string | true  | 唯一标识               |
+| followElmData | object | false | 跟随鼠标元素的对象数据 |
 
-- Type: string
-- Require: true
+### FollowElmData
 
-### value.item.followElmData
+| 参数   | 类型            | 必填  | 说明             |
+| ------ | --------------- | ----- | ---------------- |
+| src    | Image \| string | false | 拖拽对象支持图片 |
+| width  | string          | false | 拖拽对象宽       |
+| height | string          | false | 拖拽对象高       |
 
-- Type: object
-- Require: false
-
-### value.item.followElmData.src
-
-- Type: Image | string
-- Require: false
-
-### value.item.followElmData.width
-
-- Type: object
-- Require: false
-
-### value.item.followElmData.height
-
-- Type: object
-- Require: false
-
-example: value.item
+example: Options.item
 
 ```js
-
   {
-    //必填
     key: '1',
-    // 跟随鼠标元素的对象数据,可选，默认为元素本身
     followElmData:{
       src:'',
       width:'',
@@ -81,65 +58,24 @@ example: value.item
   },
 ```
 
-## Event
+## Events
 
-监听方法：`vm.$dragging.$on()`
+监听方法：`vm.$dragging.$on(<eventName>)`
 
-### dragStart 事件
+| 事件名    | 回调参数                                                          | 说明           |
+| --------- | ----------------------------------------------------------------- | -------------- |
+| dragStart | dragEventData：object;                                            | 开始拖拽时触发 |
+| dragged   | {form：dragEventData,to：dragEventData}；源对象数据，目标对象数据 | 拖动过程中触发 |
+| dragged   | {form：dragEventData,to：dragEventData}                           | 拖动结束时触发 |
 
-### callback arguments
+### dragEventData
 
-dragEventData
-
-- Type:object  
-  当前操作元素的数据
-
-dragEventData.DDD
-
-- Type:object  
-  整个操作组的数据，包含 list,item
-
-dragEventData.index
-
-- Type:object
-
-dragEventData.item
-
-- Type:object  
-  传入的 item 数据
-
-dragEventData.el
-
-- Type:Element  
-  元素的 DOM 节点
-
-### dragged 事件
-
-### arguments
-
-from
-
-- Type:dragEventData  
-  源对象数据
-
-to
-
-- Type:dragEventData  
-  目标对象数据
-
-### dragend 事件
-
-### arguments
-
-from
-
-- Type:dragEventData  
-  源对象数据
-
-to
-
-- Type:dragEventData  
-  目标对象数据
+| 参数  | 类型    | 说明                             |
+| ----- | ------- | -------------------------------- |
+| DDD   | object  | 整个操作组的数据，包含 list,item |
+| index | -       |                                  |
+| item  | object  |                                  |
+| el    | Element | 元素的 DOM 节点                  |
 
 ## Usage
 
@@ -165,8 +101,9 @@ to
      </div>
  </template>
  <script>
-
-   import vueDragging from 'vue-directive-draggable';
+  import Vue from 'vue';
+  import vueDragging from 'vue-directive-draggable';
+  Vue.use(vueDragging);
 
    export default {
      directives: {
