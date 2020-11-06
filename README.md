@@ -106,9 +106,6 @@ example: Options.item
   Vue.use(vueDragging);
 
    export default {
-     directives: {
-         vueDragging,
-     },
      data() {
        return {
            list: [
